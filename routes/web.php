@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +16,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/products', 'productCar');
+});
+
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/product-register/{product?}', 'indexRegister');
+    Route::get('/product-view', 'indexView')->name('produtoView');
+    Route::get('/product-detail/{product}', 'indexDetail');
+    Route::post('/product-register', 'store');
+    Route::put('/product-register', 'update');
+    Route::delete('/product-register/{product}', 'delete');
+});
+
+Route::controller(UserController::class)->group(function () {
+    Route::get('/user-register', 'indexRegister');
+});
+
