@@ -1,11 +1,11 @@
 <template>
 
-    <Layout>
+<Layout>
 
+    <div class="container text-white">
         <div class="row" >
-
             <!-- confirmar cadastro -->
-            <div class="modal fade" id="formUser" tabindex="-1" aria-labelledby="formUserLabel" aria-hidden="true">
+            <div class="modal fade text-dark" id="formUser" tabindex="-1" aria-labelledby="formUserLabel" aria-hidden="true">
 
                 <div class="modal-dialog modal-dialog-centered">
 
@@ -36,8 +36,8 @@
 
                 <div class="col-12 container-fluid row">
 
-                    <h2 class="text-dark my-3 ">
-                        Cadastro de Usuário
+                    <h2 class="my-3 ">
+                        {{ !payload.id ? 'Cadastro de Usuário' : 'Editar Perfil'}}
                     </h2>
 
                     <!-- 1º parte -->
@@ -207,7 +207,8 @@
 
             </form>
         </div>
-    </Layout>
+    </div>
+</Layout>
 
 </template>
 

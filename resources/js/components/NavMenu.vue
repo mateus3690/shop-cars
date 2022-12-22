@@ -68,16 +68,16 @@
     </div>
 
     <!-- NavBar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+    <nav class="navbar navbar-expand-lg navbar-light ">
 
       <div class="container-fluid">
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <Link href="/" class="navbar-brand text-light">
+          <Link href="/" class="navbar-brand text-light text-hover">
             <img src="../../img/logo.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
             Concessionária - MTS
           </Link>
@@ -85,7 +85,7 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
 
-              <Link href="/" class=" text-light nav-link">
+              <Link href="/" class=" text-light nav-link text-hover">
                  Inicio
               </Link>
             </li>
@@ -95,7 +95,7 @@
 
                   <li class="nav-item dropdown dropleft">
 
-                    <a class="nav-link dropdown-toggle text-white"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle text-white text-hover"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Produtos
                     </a>
 
@@ -120,7 +120,7 @@
             </li>
 
             <li class="nav-item">
-              <Link href="/" class="text-light nav-link">Sobre</Link>
+              <Link href="/" class="text-light nav-link text-hover">Sobre</Link>
             </li>
 
           </ul>
@@ -130,9 +130,10 @@
         <div class="d-flex align-items-center">
 
 
-          <div class="me-3 rounded btn bg-light border border-bottom border-dark" >
-            <Link  href="/" class="nav-link ">Bem-vindo {{ 'user' }} </Link>
-          </div>
+          <Link class="border-bottom text-hover nav-link text-white me-4">
+            <img src="../../img/logo.png" alt="" width="30" height="30" class="rounded-circle">
+            {{ 'Visitante' }}
+          </Link>
 
           <div class="collapse navbar-collapse me-5" id="navbarSupportedContent">
 
@@ -140,7 +141,7 @@
 
               <li class="nav-item dropdown dropleft  me-5">
 
-                <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                <a class="nav-link dropdown-toggle text-white border rounded"  role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
 
                 <ul class="dropdown-menu">
 
@@ -208,3 +209,9 @@ export default defineComponent({
     }
 })
 </script>
+<style>
+    .text-hover:hover{
+        opacity: 0.4;
+        font-size: 1.30rem;
+    }
+</style>

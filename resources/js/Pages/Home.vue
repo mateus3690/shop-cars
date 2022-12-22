@@ -8,19 +8,19 @@
         <div>
             <Carousel/>
         </div>
-       
+
         <hr/>
-        <h3 class="text-secondary">Catálogo:</h3>
+        <h3 class="text-white">Catálogo:</h3>
         <!-- Cards de catalogo -->
         <div class="row my-3">
-            <div 
-                v-for="item in products" 
+            <div
+                v-for="item in products"
                 :key="item.id"
                 class="col-4 col-md-4"
             >
-                
-                <Link 
-                    class="card w-100 card-link" 
+
+                <Link
+                    class="card w-100 card-link"
                     :href="'/product-detail/' + item.id"
                 >
                     <img :src="item.image" class="card-img-top img-hover" alt="..." height="250">
@@ -31,7 +31,7 @@
                       <p>R$:{{ (item.price).toFixed(2).replace('.', ',') }}</p>
                     </div>
 
-                  </Link> 
+                  </Link>
 
             </div>
         </div>
@@ -72,19 +72,21 @@ export default defineComponent({
 </script>
 
 <style>
+
     .card-link{
-        height: 460px; 
+        height: 460px;
         margin-bottom: 2rem;
         text-decoration: none;
         color: black;
+        opacity: 0.8;
     }
     .card-link:hover{
-        color: black;
-        background: rgba(0,0,0,0.1);
+        color: #fff;
+        background: rgba(0,0,0,0.5);
     }
 
     .img-hover:hover{
-        opacity: 0.8;
+        opacity: 1;
     }
 
 </style>

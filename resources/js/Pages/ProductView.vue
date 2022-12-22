@@ -5,43 +5,47 @@
         <!-- alert de sucesso -->
         <MensageAlert :msg="$page.props.flash.success"/>
 
-        <div class="row m-5" >
+        <div class="container text-white">
+            <div class="row m-5" >
 
-            <h1 class="my-5">Produto Cadastrados</h1>
+                <h1 class="my-5">Produto Cadastrados</h1>
 
-            <table className="table table-dark table-striped mb-5 ">
+                <table className="table table-dark table-striped mb-5 ">
 
-                <thead>
-                    <tr>
-                    <th scope="col">Código #</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Modelo</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Valor R$</th>
-                    <th scope="col">Ano</th>
-                    <th scope="col">Cor</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Detalhes</th>
+                    <thead>
+                        <tr>
+                        <th scope="col">Código #</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Valor R$</th>
+                        <th scope="col">Ano</th>
+                        <th scope="col">Cor</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Detalhes</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                    <template v-for="item in products" :key="item.id">
+                        <tr class="align-items-center">
+                        <td>#{{ item.id }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.type_model.name }}</td>
+                        <td>{{ item.category.name }}</td>
+                        <td> R$:{{ (item.price).toFixed(2) }}</td>
+                        <td>{{ item.year_product }}</td>
+                        <td>{{ item.color }}</td>
+                        <td>{{ item.published == 1 ? 'Ativo' : 'Desativado' }}</td>
+                        <td><Link :href="'/product-detail/'+item.id" class="btn btn-primary col-7"><fa-icon icon="pen" /></Link></td>
                     </tr>
-                </thead>
-                <tbody >
-                <template v-for="item in products" :key="item.id">
-                    <tr class="align-items-center">
-                    <td>#{{ item.id }}</td>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.type_model.name }}</td>
-                    <td>{{ item.category.name }}</td>
-                    <td> R$:{{ (item.price).toFixed(2) }}</td>
-                    <td>{{ item.year_product }}</td>
-                    <td>{{ item.color }}</td>
-                    <td>{{ item.published == 1 ? 'Ativo' : 'Desativado' }}</td>
-                    <td><Link :href="'/product-detail/'+item.id" class="btn btn-primary col-7"><fa-icon icon="pen" /></Link></td>
-                </tr>
-                </template>
-                </tbody>
-            </table>
+                    </template>
+                    </tbody>
+                </table>
+
+            </div>
 
         </div>
+
     </Layout>
 
 </template>
